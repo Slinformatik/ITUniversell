@@ -35,12 +35,8 @@ namespace ITUniversell
             };
             btn_Subnetting.Click += btn_Subnetting_Click;
             sp_Main.Children.Add(btn_Subnetting);
-            int x = 5;
-            switch (x)
-            {
-                case x < 3:
-                    break;
-            }
+            
+          
         }
 
         private void btn_Subnetting_Click(object sender, EventArgs e)

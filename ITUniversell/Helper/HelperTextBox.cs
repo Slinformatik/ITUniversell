@@ -18,14 +18,7 @@ namespace ITUniversell.Helper
             AcceptsReturn = true;
          
             Width = 230;
-            Height = 35;
-            
-            
-            /*
-             if(IsReadOnly == true) {
-                IsEnabled = false;
-            }
-            */
+            Height = 35;        
         }
     }
 }
