@@ -22,9 +22,10 @@ namespace ITUniversell
         {
             //Generiere Grid 6x6
             myGrid = GridHelper.CreateGrid(6, 6);
+            
             //Füge einem Grid hinzu (Welches Grid?, Welches Element? Breite an Columns, Welche Reihe, Welche Column)
             GridHelper.AddToGrid(myGrid, new HeaderLabel("IP Subnetting"), 2, 0, 0);
-            GridHelper.AddToGrid(myGrid, new HelperBackButton(), 1, 5, 5);
+            GridHelper.AddToGrid(myGrid, new HelperBackButton());
             GridHelper.AddToGrid(myGrid, new HeaderLabel("IP Adresse", 0), 1, 1, 0);
             GridHelper.AddToGrid(myGrid, new HeaderLabel("Subnetzmaske", 0), 3, 2, 0);
             GridHelper.AddToGrid(myGrid, new HeaderLabel("Netz ID", 0), 4, 3, 0);

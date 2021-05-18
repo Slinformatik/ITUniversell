@@ -31,7 +31,13 @@ namespace ITUniversell.Helper
             Grid.SetRow(control, row);
             Grid.SetColumn(control, column);
             grid.Children.Add(control);
-
+        }
+        public static void AddToGrid(Grid grid, Control control)
+        {
+           
+            Grid.SetRow(control, 0);
+            Grid.SetColumn(control, grid.ColumnDefinitions.Count-1);
+            grid.Children.Add(control);
         }
     }
 }

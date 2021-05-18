@@ -13,7 +13,9 @@ namespace ITUniversell.Helper
         {
             ItemsSource = source;
             SelectedIndex = startIndex;
-            Width = 100;
+            Width = 125;
+            Height = 30;
+
         }
         //HelperComboBox x = new HelperComboBox(new string[] {"Byte","KibiByte"...}, 1);
     }
