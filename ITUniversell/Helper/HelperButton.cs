@@ -15,5 +15,12 @@ namespace ITUniversell.Helper
             Width = 130;
             Height = 35;
         }
+        public HelperButton(string content, int m_top)
+        {
+            Content = content;
+            Width = 130;
+            Height = 35;
+            Margin = new System.Windows.Thickness(0, m_top, 0, 0);
+        }
     }
 }

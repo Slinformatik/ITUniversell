@@ -22,26 +22,30 @@ namespace ITUniversell
     public partial class MainWindow : Window
     {
         StackPanel sp_Main;
+        int m_top = 20;
+        ComboBox cb_Test;
         public MainWindow()
         {
             InitializeComponent();
             sp_Main = new StackPanel();
             this.Content = sp_Main;
-            Button btn_Subnetting = new Button()
-            {
-                Height = 30,
-                Width = 150,
-                Content = "Subnetting"
-            };
+            HelperButton btn_Subnetting = new HelperButton("Subnetting");           
             btn_Subnetting.Click += btn_Subnetting_Click;
             sp_Main.Children.Add(btn_Subnetting);
-            
-          
+
+            HelperButton btn_IT_Mathe = new HelperButton("IT Mathe",m_top);
+            btn_IT_Mathe.Click += btn_IT_Mathe_Click;
+            sp_Main.Children.Add(btn_IT_Mathe);
         }
 
         private void btn_Subnetting_Click(object sender, EventArgs e)
         {
             Content = Subnetting.CreateSubnetter();
+            
+        }
+        private void btn_IT_Mathe_Click(object sender, EventArgs e)
+        {
+            Content = IT_Mathe.CreateIT_Mathe();
         }
     }
 }
