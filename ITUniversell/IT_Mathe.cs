@@ -61,6 +61,32 @@ namespace ITUniversell
         public static void btn_submit_Click(object sender, EventArgs e)
         {
 
+            decimal sizeDownload = decimal.Parse(htb_datasize.Text);
+            decimal speedDownload = decimal.Parse(htb_dataspeed.Text);
+            double indexSize = hcb_datasize.SelectedIndex;
+            double indexSpeed = hcb_dataspeed.SelectedIndex;
+            decimal speedInBit;
+            decimal sizeInBit= 0;
+            if (indexSpeed == 0)
+            {
+                speedInBit = speedDownload;
+            }
+            else
+            {
+                speedInBit = speedDownload *(decimal)Math.Pow(1000, indexSpeed);
+            }
+            sizeInBit = sizeDownload * (decimal) Math.Pow(1024, indexSize-1) * 8;
+            decimal seconds = Math.Ceiling(sizeInBit / speedInBit);
+            htb_h.Text = Math.Ceiling(seconds / 3600).ToString();
+            seconds = seconds % 3600;
+            htb_min.Text = Math.Ceiling(seconds / 60).ToString();
+            htb_s.Text = Math.Ceiling(seconds % 60).ToString();
+
+
+            //decimal seconds = Convert.Todecimal32(Math.Ceiling(decimal.Parse(htb_datasize.Text)*Math.Pow(1024,hcb_datasize.SelectedIndex-1)*8/
+            //    (decimal.Parse(htb_dataspeed.Text) * Math.Pow(1000, hcb_dataspeed.SelectedIndex))));
+            
+            
         }
     }
 }
