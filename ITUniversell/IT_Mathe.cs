@@ -28,7 +28,7 @@ namespace ITUniversell
 
             btn_submit = new HelperButton("Berechne");
             GridHelper.AddToGrid(myGrid, btn_submit, 2, 5, 5);
-            //btn_submit.Click += btn_submit_Click;
+            btn_submit.Click += btn_submit_Click;
 
             GridHelper.AddToGrid(myGrid, new HeaderLabel("Dateigröße:", 0), 1, 1, 0);
             htb_datasize = new HelperTextBox(false);
@@ -57,6 +57,10 @@ namespace ITUniversell
             GridHelper.AddToGrid(myGrid, hcb_dataspeed, 1, 2, 2);
 
             return myGrid;
+        }
+        public static void btn_submit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
