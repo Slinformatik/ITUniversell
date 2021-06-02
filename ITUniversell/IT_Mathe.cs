@@ -60,13 +60,12 @@ namespace ITUniversell
         }
         public static void btn_submit_Click(object sender, EventArgs e)
         {
-
             decimal sizeDownload = decimal.Parse(htb_datasize.Text);
             decimal speedDownload = decimal.Parse(htb_dataspeed.Text);
             double indexSize = hcb_datasize.SelectedIndex;
             double indexSpeed = hcb_dataspeed.SelectedIndex;
             decimal speedInBit;
-            decimal sizeInBit= 0;
+            decimal sizeInBit;
             if (indexSpeed == 0)
             {
                 speedInBit = speedDownload;
@@ -77,9 +76,9 @@ namespace ITUniversell
             }
             sizeInBit = sizeDownload * (decimal) Math.Pow(1024, indexSize-1) * 8;
             decimal seconds = Math.Ceiling(sizeInBit / speedInBit);
-            htb_h.Text = Math.Ceiling(seconds / 3600).ToString();
+            htb_h.Text = seconds/3600<1?"0": Math.Ceiling(seconds / 3600).ToString();
             seconds = seconds % 3600;
-            htb_min.Text = Math.Ceiling(seconds / 60).ToString();
+            htb_min.Text = seconds / 60 <1?"0":Math.Ceiling(seconds / 60).ToString();
             htb_s.Text = Math.Ceiling(seconds % 60).ToString();
 
 
