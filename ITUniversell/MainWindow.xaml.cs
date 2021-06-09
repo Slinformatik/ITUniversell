@@ -42,16 +42,16 @@ namespace ITUniversell
             HelperButton btn_IT_Mathe = new HelperButton("IT Mathe", m_top);
             btn_IT_Mathe.Click += btn_IT_Mathe_Click;
             GridHelper.AddToGrid(mainGrid, btn_IT_Mathe, 1, 1, 1);
+
+            HelperButton btn_PasswordGenerate = new HelperButton("Passwort Generator", m_top);
+            btn_PasswordGenerate.Click += btn_PasswordGenerate_Click;
+            GridHelper.AddToGrid(mainGrid, btn_PasswordGenerate, 1, 2, 1);
+
         }
 
-        private void btn_Subnetting_Click(object sender, EventArgs e)
-        {
-            main.Content = Subnetting.CreateSubnetter();
-
-        }
-        private void btn_IT_Mathe_Click(object sender, EventArgs e)
-        {
-            main.Content = IT_Mathe.CreateIT_Mathe();
-        }
+        private void btn_Subnetting_Click(object sender, EventArgs e) => main.Content = Subnetting.CreateSubnetter();
+        private void btn_IT_Mathe_Click(object sender, EventArgs e) => main.Content = IT_Mathe.CreateIT_Mathe();
+        private void btn_PasswordGenerate_Click(object sender, EventArgs e) => main.Content = PasswordGenerate.CreatePassword();
+        
     }
 }

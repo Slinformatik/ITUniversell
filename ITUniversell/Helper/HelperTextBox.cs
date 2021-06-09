@@ -12,20 +12,26 @@ namespace ITUniversell.Helper
 {
     public class HelperTextBox : TextBox
     {
-        
+
         public HelperTextBox(bool isReadOnly)
         {
-
             //Template = GetRoundedTextBoxTemplate();
             IsReadOnly = isReadOnly;
             if (IsReadOnly) IsEnabled = false;
             TextWrapping = System.Windows.TextWrapping.Wrap;
             AcceptsReturn = true;
-         
             Width = 230;
             Height = 35;
-           
-            
+        }
+        public HelperTextBox(bool isReadOnly, bool isEnabled)
+        {
+            //Template = GetRoundedTextBoxTemplate();
+            IsReadOnly = isReadOnly;
+            IsEnabled = isEnabled;
+            TextWrapping = System.Windows.TextWrapping.Wrap;
+            AcceptsReturn = true;
+            Width = 230;
+            Height = 35;
         }
         //public static ControlTemplate GetRoundedTextBoxTemplate()
         //{

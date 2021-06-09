@@ -23,7 +23,7 @@ namespace ITUniversell
         {
             myGrid = GridHelper.CreateGrid(5, 5);
             GridHelper.AddToGrid(myGrid, new HeaderLabel("IT Mathe"), 2, 0, 0);
-
+            GridHelper.AddToGrid(myGrid, new HelperBackButton());
             //GridHelper.AddToGrid(myGrid, new HelperBack(), 1, 0, 5);
 
             btn_submit = new HelperButton("Berechne");
@@ -67,13 +67,9 @@ namespace ITUniversell
             decimal speedInBit;
             decimal sizeInBit;
             if (indexSpeed == 0)
-            {
                 speedInBit = speedDownload;
-            }
             else
-            {
                 speedInBit = speedDownload *(decimal)Math.Pow(1000, indexSpeed);
-            }
             sizeInBit = sizeDownload * (decimal) Math.Pow(1024, indexSize-1) * 8;
             decimal seconds = Math.Ceiling(sizeInBit / speedInBit);
             htb_h.Text = seconds/3600<1?"0": Math.Ceiling(seconds / 3600).ToString();

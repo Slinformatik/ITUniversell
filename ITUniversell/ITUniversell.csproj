@@ -59,8 +59,11 @@
     <Compile Include="Helper\GridHelper.cs" />
     <Compile Include="Helper\HelperBackButton.cs" />
     <Compile Include="Helper\HelperButton.cs" />
+    <Compile Include="Helper\HelperCheckbox.cs" />
     <Compile Include="Helper\HelperComboBox.cs" />
+    <Compile Include="Helper\HelperSlider.cs" />
     <Compile Include="IT_Mathe.cs" />
+    <Compile Include="PasswordGenerate.cs" />
     <Compile Include="Subnetting.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
