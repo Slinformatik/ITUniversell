@@ -54,9 +54,12 @@ namespace ITUniversell
             hrtb_password.Document.Blocks.Clear();
 
             if (hcb_IsNumeric.IsChecked == true)
-                for(int i = 0; i< twentyPercent; i++)
+            {
+                for (int i = 0; i < twentyPercent; i++)
                     password.Add(Convert.ToChar(MainWindow.rnd.Next(48, 58)).ToString());
                 lengthOfPasswort -= twentyPercent;
+            }
+                
 
             if(hcb_IsSpecialChar.IsChecked == true)
             {
@@ -64,14 +67,14 @@ namespace ITUniversell
                         password.Add(Convert.ToChar(MainWindow.rnd.Next(33, 48)).ToString());
                     lengthOfPasswort -= twentyPercent;
 
-                for(int i = 0; i<lengthOfPasswort; i++)
-                    if (MainWindow.rnd.Next(0, 2) == 0)
-                        password.Add(Convert.ToChar(MainWindow.rnd.Next(65, 91)).ToString());
-                    else
-                    password.Add(Convert.ToChar(MainWindow.rnd.Next(97, 123)).ToString());
+                
             }
-
-            for(int i = 0; i< lastFor; i++)
+            for (int i = 0; i < lengthOfPasswort; i++)
+                if (MainWindow.rnd.Next(0, 2) == 0)
+                    password.Add(Convert.ToChar(MainWindow.rnd.Next(65, 91)).ToString());
+                else
+                    password.Add(Convert.ToChar(MainWindow.rnd.Next(97, 123)).ToString());
+            for (int i = 0; i< lastFor; i++)
             {
                 int temp = MainWindow.rnd.Next(0, password.Count);
                 shuffeldPassword.Add(password[temp]);
@@ -85,7 +88,7 @@ namespace ITUniversell
                 else
                     AppendText(hrtb_password, s, "Black");
             }
-            // Clipboard.SetText(htb_password.Text);
+            //Clipboard.SetText(htb_password.Text);
 
         }
         public static void AppendText(RichTextBox box, string text, string color)
