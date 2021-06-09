@@ -61,6 +61,7 @@
     <Compile Include="Helper\HelperButton.cs" />
     <Compile Include="Helper\HelperCheckbox.cs" />
     <Compile Include="Helper\HelperComboBox.cs" />
+    <Compile Include="Helper\HelperRichTextBox.cs" />
     <Compile Include="Helper\HelperSlider.cs" />
     <Compile Include="IT_Mathe.cs" />
     <Compile Include="PasswordGenerate.cs" />
