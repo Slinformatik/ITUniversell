@@ -24,6 +24,7 @@ namespace ITUniversell
         //Statisch  (Veränderungen in anderen Klassen werden auch hier übernommen)
         public static Grid mainGrid;
         public static MainWindow main;
+        public static Random rnd = new Random();
 
         int m_top = 20;
         public MainWindow()

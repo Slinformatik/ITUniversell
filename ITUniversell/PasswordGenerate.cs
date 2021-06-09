@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ITUniversell
@@ -22,8 +23,8 @@ namespace ITUniversell
         public static Grid CreatePassword()
         {
             myGrid = GridHelper.CreateGrid(5, 6);
-            myGrid.ShowGridLines = true;
             hbtn_Submit = new HelperButton("Generiere");
+            hbtn_Submit.Click += hbtn_Submit_Click;
             htb_password = new HelperTextBox(true);
             hcb_IsNumeric = new HelperCheckbox("Zahlen",true);
             hcb_IsSpecialChar = new HelperCheckbox("Sonderzeichen", true);
@@ -41,6 +42,45 @@ namespace ITUniversell
             return myGrid;
         }
 
+        public static void hbtn_Submit_Click(object sender, EventArgs e)
+        {
+            List<string> password = new List<string>();
+            List<string> shuffeldPassword = new List<string>();
+            int lengthOfPasswort = Convert.ToInt32(hsl_Length.Value);
+            int lastFor = lengthOfPasswort; //Damit die Länge des Passwortes bekannt bleibt
+            int twentyPercent = lengthOfPasswort / 5;
+            htb_password.Text = "";
+
+            if (hcb_IsNumeric.IsChecked == true)
+                for(int i = 0; i< twentyPercent; i++)
+                    password.Add(Convert.ToChar(MainWindow.rnd.Next(48, 58)).ToString());
+                lengthOfPasswort -= twentyPercent;
+
+            if(hcb_IsSpecialChar.IsChecked == true)
+            {
+                    for (int i = 0; i < twentyPercent; i++)
+                        password.Add(Convert.ToChar(MainWindow.rnd.Next(33, 48)).ToString());
+                    lengthOfPasswort -= twentyPercent;
+
+                for(int i = 0; i<lengthOfPasswort; i++)
+                    if (MainWindow.rnd.Next(0, 2) == 0)
+                        password.Add(Convert.ToChar(MainWindow.rnd.Next(65, 91)).ToString());
+                    else
+                    password.Add(Convert.ToChar(MainWindow.rnd.Next(97, 123)).ToString());
+            }
+
+            for(int i = 0; i< lastFor; i++)
+            {
+                int temp = MainWindow.rnd.Next(0, password.Count);
+                shuffeldPassword.Add(password[temp]);
+                password.RemoveAt(temp);
+            }
+            foreach (string s in shuffeldPassword)
+                htb_password.Text += s;
+
+            Clipboard.SetText(htb_password.Text);
+
+        }
         public static void hsl_Length_ValueChanged(object sender, EventArgs e)
         {
             label.Content = Convert.ToInt32(hsl_Length.Value).ToString();
