@@ -26,8 +26,6 @@ namespace ITUniversell.Helper
         {
             Content = content;
             FontSize = 13;
-            HorizontalAlignment = HorizontalAlignment.Left;
-            VerticalAlignment = VerticalAlignment.Top;
             Margin = new Thickness(0, margin, 0, 0);
         }
     }

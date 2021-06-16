@@ -26,6 +26,7 @@ namespace ITUniversell
         public static MainWindow main;
         public static Random rnd = new Random();
 
+
         int m_top = 20;
         public MainWindow()
         {
@@ -48,8 +49,13 @@ namespace ITUniversell
             btn_PasswordGenerate.Click += btn_PasswordGenerate_Click;
             GridHelper.AddToGrid(mainGrid, btn_PasswordGenerate, 1, 2, 1);
 
+            HelperButton btn_Zahlensysteme = new HelperButton("Zahlensysteme", m_top);
+            btn_Zahlensysteme.Click += btn_Zahlensysteme_Click;
+            GridHelper.AddToGrid(mainGrid, btn_Zahlensysteme, 1, 3, 1);
+
         }
 
+        private void btn_Zahlensysteme_Click(object sender, EventArgs e) => main.Content = Zahlensysteme.CreateZahlensysteme();
         private void btn_Subnetting_Click(object sender, EventArgs e) => main.Content = Subnetting.CreateSubnetter();
         private void btn_IT_Mathe_Click(object sender, EventArgs e) => main.Content = IT_Mathe.CreateIT_Mathe();
         private void btn_PasswordGenerate_Click(object sender, EventArgs e) => main.Content = PasswordGenerate.CreatePassword();

@@ -24,6 +24,7 @@ namespace ITUniversell
 
         public static Grid CreatePassword()
         {
+            if(myGrid != null)  myGrid.Children.Clear();
             myGrid = GridHelper.CreateGrid(5, 6);
             hbtn_Submit = new HelperButton("Generiere");
             hbtn_Submit.Click += hbtn_Submit_Click;
