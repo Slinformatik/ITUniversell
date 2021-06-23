@@ -63,6 +63,7 @@
     <Compile Include="Helper\HelperComboBox.cs" />
     <Compile Include="Helper\HelperRichTextBox.cs" />
     <Compile Include="Helper\HelperSlider.cs" />
+    <Compile Include="Helper\Methods.cs" />
     <Compile Include="IT_Mathe.cs" />
     <Compile Include="PasswordGenerate.cs" />
     <Compile Include="Subnetting.cs" />
