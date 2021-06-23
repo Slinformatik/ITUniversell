@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ITUniversell
 {
@@ -20,53 +21,50 @@ namespace ITUniversell
             GridHelper.AddToGrid(mygrid, new HeaderLabel("Zahlensysteme"), 2, 0, 0);
             GridHelper.AddToGrid(mygrid, new HeaderLabel("Dezimal", 0) { HorizontalAlignment = System.Windows.HorizontalAlignment.Center }, 1, 1, 1);
             htb_dezimal = new HelperTextBox(false);
-            htb_dezimal.TextChanged += Htb_TextChanged;
+            htb_dezimal.PreviewTextInput += Htb_TextChanged;
             htb_dezimal.Width = 100;
             htb_dezimal.Tag = "d";
             GridHelper.AddToGrid(mygrid, htb_dezimal, 1, 1, 1);
             GridHelper.AddToGrid(mygrid, new HeaderLabel("Binär", 0) { HorizontalAlignment = System.Windows.HorizontalAlignment.Center }, 1, 1, 2);
             htb_binaer = new HelperTextBox(false);
             htb_binaer.Width = 100;
-            htb_binaer.TextChanged += Htb_TextChanged;
+            htb_binaer.PreviewTextInput += Htb_TextChanged;
             htb_binaer.Tag = "b";
             GridHelper.AddToGrid(mygrid, htb_binaer, 1, 1, 2);
             GridHelper.AddToGrid(mygrid, new HeaderLabel("Hexadezimal", 0) { HorizontalAlignment = System.Windows.HorizontalAlignment.Center }, 1, 1, 3);
             htb_hexa = new HelperTextBox(false);
             htb_hexa.Width = 100;
-            htb_hexa.TextChanged += Htb_TextChanged;
+            htb_hexa.PreviewTextInput += Htb_TextChanged;
             htb_hexa.Tag = "h";
-            GridHelper.AddToGrid(mygrid, htb_hexa, 1, 1, 3);
-
-            
+            GridHelper.AddToGrid(mygrid, htb_hexa, 1, 1, 3);            
             return mygrid;
         }
-
-        private static void Htb_TextChanged(object sender, EventArgs e)
+       
+        private static void Htb_TextChanged(object sender, TextCompositionEventArgs e)
         {
             TBReadOnly();
             //CalculateNumberSystem();
 
 
-            Match m;
+           
 
             if ((sender as TextBox).Tag.ToString() == "d")
             {
-                m = Regex.Match(htb_dezimal.Text, @"^[0 - 9]");
-                if (m.Success)
-                {
-                    Console.WriteLine(Reverse(e.ToString()));
-                }
+                Regex regex = new Regex("[^0-9]+");
+                e.Handled = regex.IsMatch(e.Text);
             }
 
             
         
             if ((sender as TextBox).Tag.ToString() == "b")
             {
-
+                Regex regex = new Regex("[^0-1]+");
+                e.Handled = regex.IsMatch(e.Text);
             }
             if ((sender as TextBox).Tag.ToString() == "h")
             {
-
+                Regex regex = new Regex("[^0-9a-f]+");
+                e.Handled = regex.IsMatch(e.Text);
             }
         }
 
